@@ -1,0 +1,48 @@
+# Site settings
+title: My Jekyll Site
+email: your-email@example.com
+description: >- # this means to ignore newlines until "baseurl:"
+  A simple and clean Jekyll site built for GitHub Pages.
+baseurl: "/docs" # For user/organization sites, leave it empty. For project sites, set it to /my-project.
+url: "https://username.github.io" # Your GitHub Pages URL
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: jekyll-theme-primer # You can change this to any other theme or remove it to use the default theme
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-relative-links
+
+# Pagination
+paginate: 5
+paginate_path: "/page:num/"
+
+# Social Media Links
+twitter_username: your-twitter-username
+github_username: your-github-username
+
+# Google Analytics
+google_analytics: UA-XXXXXX-X # Replace with your Google Analytics tracking ID
+
+# Exclude files from being processed
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Permalinks
+permalink: /:year/:month/:day/:title/
+
+# Language
+locale: en
+
+# Custom Collections (if needed)
+# collections:
+#   my_collection:
+#     output: true
