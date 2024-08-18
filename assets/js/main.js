@@ -1,11 +1,3 @@
-/**
-* Template Name: DevFolio
-* Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 (function() {
   "use strict";
 
@@ -247,5 +239,52 @@
   }
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
+
+  // Add Formspree form handling code here
+  document.addEventListener('DOMContentLoaded', function() {
+    // Function to handle form submission
+    document.getElementById('contact-form').addEventListener('submit', async function(event) {
+      event.preventDefault();
+
+      // Show loading message
+      document.querySelector('.php-email-form .loading').style.display = 'block';
+
+      // Hide previous messages
+      document.querySelector('.php-email-form .sent-message').style.display = 'none';
+      document.querySelector('.php-email-form .error-message').style.display = 'none';
+
+      try {
+        const response = await fetch('https://formspree.io/f/mkgwvnoq', {
+          method: 'POST',
+          body: new FormData(this),
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        const result = await response.json();
+
+        // Hide loading message
+        document.querySelector('.php-email-form .loading').style.display = 'none';
+
+        if (result.ok) {
+          // Show success message
+          document.querySelector('.php-email-form .sent-message').style.display = 'block';
+          // Clear the form
+          this.reset();
+        } else {
+          throw new Error(result.error || 'Unknown error occurred');
+        }
+      } catch (error) {
+        // Hide loading message
+        document.querySelector('.php-email-form .loading').style.display = 'none';
+
+        // Show error message
+        const errorMessage = document.querySelector('.php-email-form .error-message');
+        errorMessage.textContent = `Error: ${error.message}`;
+        errorMessage.style.display = 'block';
+      }
+    });
+  });
 
 })();
