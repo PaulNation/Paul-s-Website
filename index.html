@@ -604,7 +604,7 @@
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
                   <h3>Address</h3>
-                  <p>A108 Adam Street, New York, NY 535022</p>
+                  <p>234 Calle Turpial, San Juan, PR</p>
                 </div>
               </div>
             </div><!-- End Info Item -->
@@ -613,8 +613,8 @@
               <div class="info-item d-flex align-items-center">
                 <i class="bi bi-telephone flex-shrink-0"></i>
                 <div>
-                  <h3>Call Us</h3>
-                  <p>+1 5589 55488 55</p>
+                  <h3>Call Me</h3>
+                  <p>787 667 6860</p>
                 </div>
               </div>
             </div><!-- End Info Item -->
@@ -633,23 +633,23 @@
         </div>
 
         <!-- Contact Form with Formspree -->
-        <form action="https://formspree.io/f/mkgwvnoq" method="POST" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
+        <form id="contact-form" action="https://formspree.io/f/mkgwvnoq" method="POST" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
           <div class="row gy-4">
 
             <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+              <input type="text" name="name" class="form-control" placeholder="Your Name" required>
             </div>
 
             <div class="col-md-6 ">
-              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+              <input type="email" class="form-control" name="email" placeholder="Your Email" required>
             </div>
 
             <div class="col-md-12">
-              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+              <input type="text" class="form-control" name="subject" placeholder="Subject" required>
             </div>
 
             <div class="col-md-12">
-              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+              <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
             </div>
 
             <div class="col-md-12 text-center">
@@ -666,6 +666,39 @@
       </div>
 
     </section><!-- /Contact Section -->
+
+    <!-- JavaScript for Formspree Handling -->
+    <script>
+      document.getElementById('contact-form').addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+
+          if (response.ok) {
+            document.querySelector('.sent-message').style.display = 'block';
+            document.querySelector('.error-message').style.display = 'none';
+            document.querySelector('.loading').style.display = 'none';
+            form.reset();
+          } else {
+            document.querySelector('.error-message').style.display = 'block';
+            document.querySelector('.loading').style.display = 'none';
+          }
+        } catch (error) {
+          document.querySelector('.error-message').style.display = 'block';
+          document.querySelector('.loading').style.display = 'none';
+        }
+      });
+    </script>
 
   </main>
 
