@@ -22,8 +22,8 @@ paginate: 5
 paginate_path: "/page:num/"
 
 # Social Media Links
-twitter_username: your-twitter-username
-github_username: your-github-username
+twitter_username: PaulNation45
+github_username: paulnation
 
 # Google Analytics
 google_analytics: UA-XXXXXX-X # Replace with your Google Analytics tracking ID
