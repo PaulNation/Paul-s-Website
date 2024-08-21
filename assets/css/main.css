@@ -1384,7 +1384,9 @@ section,
 # Portfolio Details Section
 --------------------------------------------------------------*/
 .portfolio-details .portfolio-details-slider img {
-  width: 100%;
+  width: 30%;
+  display: block;
+  margin: 0 auto; 
 }
 
 .portfolio-details .swiper-wrapper {
