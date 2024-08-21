@@ -1384,7 +1384,7 @@ section,
 # Portfolio Details Section
 --------------------------------------------------------------*/
 .portfolio-details .portfolio-details-slider img {
-  width: 30%;
+  width: 50%;
   display: block;
   margin: 0 auto; 
 }
