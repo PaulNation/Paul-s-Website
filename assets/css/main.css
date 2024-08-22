@@ -1389,6 +1389,20 @@ section,
   margin: 0 auto; 
 }
 
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide video {
+  max-width: 600px; /* Adjust max width as needed */
+  max-height: 340px; /* Adjust max height as needed */
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+
 .portfolio-details .swiper-wrapper {
   height: auto;
 }
